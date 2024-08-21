@@ -1,0 +1,9 @@
+spring.application.name=gipher-app-wishlist-service
+server.port=8099
+
+spring.data.mongodb.authentication-database=gipher_app
+spring.data.mongodb.username=root
+spring.data.mongodb.password=1234
+spring.data.mongodb.database=gipher_app
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017

@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <h1>Favourites</h1>
+  <hr />
+  <div *ngIf="this.gifApi.favourites.length === 0">
+    <p class="no-fav-text">It's so lonely in here. Go ahead add some
+      favourites...</p>
+  </div>
+  <div class="row" [ngStyle]="{'padding': this.gifApi.favourites.length > 0 ? '0px' : '260px'}">
+    <div class="col-xs-12 col-sm-6 col-lg-3 col-md-6 mx-auto"
+      *ngFor="let data of gifApi.favourites | paginate:{id: 'favourites-paginate', itemsPerPage:8, currentPage:p}">
+      <div class="card mx-auto" style="width: 18rem;">
+        <img src="{{data.imageURL}}" class="card-img-top custom-card-img" alt="..."
+          routerLink="/cardDetails/{{ data.id }}">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ data.title === ""? "No Title":data.title }}</h5>
+          <mat-card-actions class="d-flex flex-row">
+            <!-- <button mat-stroked-button color="primary" class="mx-auto">Recommend</button> -->
+            <button mat-stroked-button color="primary" class="mx-auto" (click)="onClickFavourite(data)"> Unfavourite
+            </button>
+          </mat-card-actions>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex">
+    <pagination-controls autoHide="true" responsive="true" id="favourites-paginate"
+      class="paginate mx-auto my-pagination" (pageChange)="p=$event" style="margin-top: 20px;"></pagination-controls>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+user
+	getter setter
+	no args
+	all args
+
+favrite
+	all args contructor
+
+auth.service.ts
+	baseUrl 8888--->8084
+
+
+gipher-auth-main run file
+	added component scan
+
+UserController
+	added component scan

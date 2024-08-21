@@ -1,0 +1,97 @@
+<section class="video-fluid">
+  <video playsinline autoplay muted loop>
+    <source src="../../assets/cindysuen.mp4" type="video/mp4">
+  </video>
+  <div class="mask rgba-gradient d-flex mx-auto justify-content-center align-items-center">
+    <!-- Content -->
+    <div class="container flex-center">
+      <h2>Register</h2>
+      <hr />
+      <form [formGroup]="registrationForm" (ngSubmit)="registerSubmit()">
+        <!-- User Email -->
+        <div class="form-group">
+          <label for="email"><b>Email Id :</b></label>
+          <input id="email" type="email" [formControl]="emailId" class="form-cotrol" class="form-control" />
+          <div *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)" class="alert alert-danger">
+            <div *ngIf="emailId.errors.required">
+              Enter email
+            </div>
+            <div>
+              <div *ngIf="emailId.errors.email"></div>
+            </div>
+          </div>
+        </div>
+        <!-- User Name -->
+        <div class="form-group">
+          <label for="username"> <b>User Name : </b></label>
+          <input id="username" type="text" [formControl]="userName" class="form-control" />
+          <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="alert alert-danger">
+            <div class="userName" *ngIf="userName.errors.required">
+              Name is required.
+            </div>
+            <div class="userName" *ngIf="userName.errors.minlength">
+              Name must be at least 5 characters long.
+            </div>
+          </div>
+        </div>
+        <!-- DOB -->
+        <div class="form-group">
+          <label for="dob"><b> Date Of Birth : </b></label>
+          <input id="dob" type="date" [formControl]="date" class="form-control" />
+          <div *ngIf="date.invalid && (date.dirty || date.touched)" class="alert alert-danger">
+            <div *ngIf="date.errors.required">
+              Date of Birth is required.
+            </div>
+          </div>
+        </div>
+        <!-- User Address -->
+        <div class="form-group">
+          <label for="mobile-number"><b> Mobile Number: </b></label>
+          <input id="mobile-number" input type="text" [formControl]="mobileNumber" class="form-control" />
+          <div class="mobileNumber" *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)"
+            class="alert alert-danger">
+            <div *ngIf="mobileNumber.errors.required">
+              Mobile number is required.
+            </div>
+          </div>
+        </div>
+        <!-- Users gender using radiobutton -->
+        <div>
+          <label><b>Gender: </b></label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" [formControl]="gender" value="male" /> Male<br />
+            <input class="form-check-input" type="radio" [formControl]="gender" value="female" /> Female<br />
+            <input class="form-check-input" type="radio" [formControl]="gender" value="other" /> Other
+          </div>
+          <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="alert alert-danger">
+            <div *ngIf="gender.errors.required">
+              Choose a gender
+            </div>
+          </div>
+        </div>
+        <!-- Password -->
+        
+        <div class="form-group">
+          <label for="password"> Password : </label>
+          <input id="password" type="password" [formControl]="password" class="form-control" />
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+            <div class="password" *ngIf="password.errors.required">
+              Password is required.
+            </div>
+            <div class="password" *ngIf="password.errors.minlength">
+              Password must be at least 5 characters long.
+            </div>
+          </div>
+        </div>
+        <!-- Image Upload-->
+        <label for="upload"><b>Upload Profile Picture:</b></label><br>
+        <input id="upload" type="file" accept="images/*" [formControl]='image' (change)="fileSelected($event)">
+        <hr>
+        <!-- Submit Button -->
+        <button  type="submit" 
+          [disabled]="!registrationForm.valid"
+          class="btn btn-dark">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>

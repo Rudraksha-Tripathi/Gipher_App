@@ -1,0 +1,14 @@
+<div class="card">
+  <img src="{{data.imageURL}}" class="card-img-top custom-card-img" alt="..." routerLink="/cardDetails/{{ data.id }}">
+  <div class="card-body">
+    <h5 class="card-title">{{ data.title }}</h5>
+    <mat-card-actions class="d-flex flex-row">
+      <button mat-stroked-button color="primary" class="mx-auto" (click) = "onClickFavourite()" *ngIf = "onCheckFavourites()"> Unfavourite </button>
+      <button mat-stroked-button color="primary" class="mx-auto" (click) = "onClickFavourite()" *ngIf = "!onCheckFavourites()"> Favourite </button>
+    </mat-card-actions>
+  </div>
+</div>
+<div class="d-flex">
+  <pagination-controls autoHide="true" responsive="true" id="favourites-paginate" class="paginate mx-auto my-pagination"
+    (pageChange)="p=$event" style="margin-top: 20px;"></pagination-controls>
+</div>

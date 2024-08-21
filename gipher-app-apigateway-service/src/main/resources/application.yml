@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: gipher-app-api-gateway
+  cloud:
+    gateway:
+      routes:
+      - id: auth-service
+        uri:
+          lb://GIPHER-APP-AUTH-SERVICE
+        predicates:
+        - Path=/user/**
+      - id: wishlist-service
+        uri:
+          lb://GIPHER-APP-WISHLIST-SERVICE
+        predicates:
+        - Path=/favourites/** 
+      - id: giphy-api-data
+        uri: http://api.giphy.com
+        predicates:
+        - Path=/v1/**
+
+        
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+      globalcors:
+          cors-configurations: 
+            '[/**]':
+              allowed-origins: "*"
+              allowed-methods: "*"
+              allowed-headers: "*"
+          
+server:
+  port: 8888  

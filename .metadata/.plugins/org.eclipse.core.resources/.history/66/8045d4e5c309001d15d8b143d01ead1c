@@ -1,0 +1,36 @@
+package com.gipher.wishlist.model;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Document(collection="favourites")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Favourite {
+
+	
+	@Id
+	private String favId;
+	private String username;
+	private String emailId;
+	private String title;
+	private String imageURL;
+	private int isSticker;
+	
+	public Favourite(String favId, String username, String emailId, String title, String imageURL, int isSticker) {
+		super();
+		this.favId = favId;
+		this.username = username;
+		this.emailId = emailId;
+		this.title = title;
+		this.imageURL = imageURL;
+		this.isSticker = isSticker;
+	}
+	
+	
+}

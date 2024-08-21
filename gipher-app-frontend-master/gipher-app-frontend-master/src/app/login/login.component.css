@@ -1,0 +1,61 @@
+/* .container {
+  height: 82.5vh;
+  width: 90%;
+  padding-top: 80px;
+} */
+
+.form-control {
+  padding: 20px;
+  background-color: rgb(56, 56, 56);
+  color: white !important; 
+  border: none;
+}
+
+h2 {
+  color: white !important;
+}
+
+.alert {
+  margin-top: 5px;
+  border-radius: 0px !important;
+}
+
+.form-font {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.video-fluid {
+  margin: 0px;
+}
+
+video {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.mask {
+  background-attachment: fixed;
+  bottom: 0;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  width: 40%;
+  height: 100%;
+}
+
+@media(max-width: 933px) {
+  video {
+    display: none;
+  }
+  .mask {
+    padding: 200px 10px 200px 10px;
+    position: relative;
+    width: 100%;
+    background-color: #1a1e20;
+  }
+}

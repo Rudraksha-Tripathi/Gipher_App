@@ -1,0 +1,21 @@
+<div class="container">
+  <blockquote class="blockquote">
+    <h2>{{ selectedGif.title }}</h2>
+    <footer *ngIf="selectedGif.username !== ''" class="blockquote-footer">Uploaded By - <cite
+        title="Source Title">{{ selectedGif.username }}</cite>
+    </footer>
+  </blockquote>
+  <hr />
+  <div class="d-flex">
+    <img src="{{ selectedGif.imageURL }}" class="img-fluid mx-auto" />
+  </div>
+  <div class="d-flex justify-content-center">
+    
+    <button mat-stroked-button color="primary" class="m-2" (click) = "onClickFavourite()" *ngIf = "onCheckFavourites(); else favouriteButton">Unfavourite</button>
+    <ng-template #favouriteButton>
+      <button mat-stroked-button color="primary" class="m-2" (click) = "onClickFavourite()">Favourite</button>
+    </ng-template>
+  </div>
+  <hr />
+  
+</div>

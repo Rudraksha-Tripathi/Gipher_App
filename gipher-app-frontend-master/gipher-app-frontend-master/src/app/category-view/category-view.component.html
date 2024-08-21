@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <h2>{{ category }}</h2>
+  <hr />
+  <div class=" row content-row">
+    <div class="col-xs-12 col-sm-6 col-lg-3 col-md-6"
+      *ngFor="let gif of gifApi.searchedGifs | paginate:{id: 'search-paginate', itemsPerPage:8, currentPage:p}">
+      <app-card [data]="gif" (fetchedRecommended)="initializeRecommendedArray($array)">
+      </app-card>
+    </div>
+  </div>
+  <div class="d-flex">
+    <pagination-controls responsive="true" id="search-paginate" class="paginate mx-auto my-pagination"
+      (pageChange)="p=$event" style="margin-top: 20px;" autoHide="true"></pagination-controls>
+  </div>
+</div>

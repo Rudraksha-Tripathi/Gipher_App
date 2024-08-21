@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+.form-control, .custom-select, .btn {
+  border-radius: 0px !important;
+}
+.my-pagination /deep/ .ngx-pagination .current {
+  background: #2c3e50;
+  color: white;
+}
+.container-fluid {
+  margin-top: 70px;
+  position: relative;
+  font-family: 'Girassol', cursive;
+}
+

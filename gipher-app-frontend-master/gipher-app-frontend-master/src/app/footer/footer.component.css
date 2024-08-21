@@ -1,0 +1,41 @@
+footer {
+  background: #0f1215;
+}
+.copyright p {
+  text-align: center;
+  color: #FFFFFF;
+  margin: 0;
+  font-size: .9em;
+}
+.copyright p a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.copyright p a:hover {
+  color: #daae19;
+}
+.social-icon {
+  width: 60px;
+  height: 60px;
+}
+.container {
+  padding: 10px;
+}
+.footer-header {
+  color: white;
+}
+.social-block {
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.social-block:hover {
+  background-color: #404344;
+}
+
+@media(max-width: 578px) {
+  .social-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
